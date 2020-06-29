@@ -12,9 +12,9 @@
 
 <meta name="author" content="Michael Mayer" />
 
-<meta name="date" content="2020-05-31" />
+<meta name="date" content="2020-06-29" />
 
-<title>The ‘confintr’ Package</title>
+<title>Using confintr</title>
 
 
 
@@ -301,9 +301,9 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<h1 class="title toc-ignore">The ‘confintr’ Package</h1>
+<h1 class="title toc-ignore">Using confintr</h1>
 <h4 class="author">Michael Mayer</h4>
-<h4 class="date">2020-05-31</h4>
+<h4 class="date">2020-06-29</h4>
 
 
 
@@ -320,6 +320,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <li><p>skewness and kurtosis (bootstrap only),</p></li>
 <li><p>R-squared and the non-centrality parameter of the F distribution (parametric),</p></li>
 <li><p>Cramér’s V and the non-centrality parameter of the chi-squared distribution (parametric and bootstrap),</p></li>
+<li><p>the odds ratio of a 2x2 table (exact),</p></li>
 <li><p>Pearson-, Spearman-, Kendall correlation coefficients (normal for Pearson, bootstrap for any),</p></li>
 <li><p>Mean, quantile and median differences of two samples (for quantile/median only bootstrap).</p></li>
 </ul>
@@ -363,7 +364,7 @@ install_github(&quot;mayer79/confintr&quot;)</code></pre>
 <span id="cb3-17"><a href="#cb3-17"></a><span class="co">#&gt; Sample estimate: 50.5 </span></span>
 <span id="cb3-18"><a href="#cb3-18"></a><span class="co">#&gt; Confidence interval:</span></span>
 <span id="cb3-19"><a href="#cb3-19"></a><span class="co">#&gt;     2.5%    97.5% </span></span>
-<span id="cb3-20"><a href="#cb3-20"></a><span class="co">#&gt; 44.80173 56.30818</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="co">#&gt; 44.79985 56.16960</span></span>
 <span id="cb3-21"><a href="#cb3-21"></a></span>
 <span id="cb3-22"><a href="#cb3-22"></a><span class="co"># 95% value at risk</span></span>
 <span id="cb3-23"><a href="#cb3-23"></a><span class="kw">ci_quantile</span>(<span class="kw">rexp</span>(<span class="dv">1000</span>), <span class="dt">q =</span> <span class="fl">0.95</span>)</span>
@@ -371,10 +372,10 @@ install_github(&quot;mayer79/confintr&quot;)</code></pre>
 <span id="cb3-25"><a href="#cb3-25"></a><span class="co">#&gt;  Two-sided 95% binomial confidence interval for the population 95%</span></span>
 <span id="cb3-26"><a href="#cb3-26"></a><span class="co">#&gt;  quantile</span></span>
 <span id="cb3-27"><a href="#cb3-27"></a><span class="co">#&gt; </span></span>
-<span id="cb3-28"><a href="#cb3-28"></a><span class="co">#&gt; Sample estimate: 2.989124 </span></span>
+<span id="cb3-28"><a href="#cb3-28"></a><span class="co">#&gt; Sample estimate: 3.283648 </span></span>
 <span id="cb3-29"><a href="#cb3-29"></a><span class="co">#&gt; Confidence interval:</span></span>
 <span id="cb3-30"><a href="#cb3-30"></a><span class="co">#&gt;     2.5%    97.5% </span></span>
-<span id="cb3-31"><a href="#cb3-31"></a><span class="co">#&gt; 2.778321 3.337564</span></span>
+<span id="cb3-31"><a href="#cb3-31"></a><span class="co">#&gt; 3.061908 3.528435</span></span>
 <span id="cb3-32"><a href="#cb3-32"></a></span>
 <span id="cb3-33"><a href="#cb3-33"></a><span class="co"># IQR</span></span>
 <span id="cb3-34"><a href="#cb3-34"></a><span class="kw">ci_IQR</span>(<span class="kw">rexp</span>(<span class="dv">100</span>), <span class="dt">R =</span> <span class="dv">999</span>)</span>
@@ -382,10 +383,10 @@ install_github(&quot;mayer79/confintr&quot;)</code></pre>
 <span id="cb3-36"><a href="#cb3-36"></a><span class="co">#&gt;  Two-sided 95% bootstrap confidence interval for the population IQR</span></span>
 <span id="cb3-37"><a href="#cb3-37"></a><span class="co">#&gt;  based on 999 bootstrap replications and the bca method</span></span>
 <span id="cb3-38"><a href="#cb3-38"></a><span class="co">#&gt; </span></span>
-<span id="cb3-39"><a href="#cb3-39"></a><span class="co">#&gt; Sample estimate: 1.023633 </span></span>
+<span id="cb3-39"><a href="#cb3-39"></a><span class="co">#&gt; Sample estimate: 0.9353658 </span></span>
 <span id="cb3-40"><a href="#cb3-40"></a><span class="co">#&gt; Confidence interval:</span></span>
 <span id="cb3-41"><a href="#cb3-41"></a><span class="co">#&gt;      2.5%     97.5% </span></span>
-<span id="cb3-42"><a href="#cb3-42"></a><span class="co">#&gt; 0.6864477 1.3322187</span></span>
+<span id="cb3-42"><a href="#cb3-42"></a><span class="co">#&gt; 0.7072633 1.4318515</span></span>
 <span id="cb3-43"><a href="#cb3-43"></a></span>
 <span id="cb3-44"><a href="#cb3-44"></a><span class="co"># Correlation</span></span>
 <span id="cb3-45"><a href="#cb3-45"></a><span class="kw">ci_cor</span>(iris[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="dt">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;bootstrap&quot;</span>, <span class="dt">R =</span> <span class="dv">999</span>)</span>
@@ -397,7 +398,7 @@ install_github(&quot;mayer79/confintr&quot;)</code></pre>
 <span id="cb3-51"><a href="#cb3-51"></a><span class="co">#&gt; Sample estimate: -0.1667777 </span></span>
 <span id="cb3-52"><a href="#cb3-52"></a><span class="co">#&gt; Confidence interval:</span></span>
 <span id="cb3-53"><a href="#cb3-53"></a><span class="co">#&gt;        2.5%       97.5% </span></span>
-<span id="cb3-54"><a href="#cb3-54"></a><span class="co">#&gt; -0.29978326  0.01053368</span></span>
+<span id="cb3-54"><a href="#cb3-54"></a><span class="co">#&gt; -0.29697461 -0.01197562</span></span>
 <span id="cb3-55"><a href="#cb3-55"></a></span>
 <span id="cb3-56"><a href="#cb3-56"></a><span class="co"># Proportions</span></span>
 <span id="cb3-57"><a href="#cb3-57"></a><span class="kw">ci_proportion</span>(<span class="dv">10</span>, <span class="dt">n =</span> <span class="dv">100</span>, <span class="dt">type =</span> <span class="st">&quot;Wilson&quot;</span>)</span>
@@ -438,7 +439,7 @@ install_github(&quot;mayer79/confintr&quot;)</code></pre>
 <span id="cb3-92"><a href="#cb3-92"></a><span class="co">#&gt; Sample estimate: 1.79976 </span></span>
 <span id="cb3-93"><a href="#cb3-93"></a><span class="co">#&gt; Confidence interval:</span></span>
 <span id="cb3-94"><a href="#cb3-94"></a><span class="co">#&gt;     2.5%    97.5% </span></span>
-<span id="cb3-95"><a href="#cb3-95"></a><span class="co">#&gt; 1.584061 2.047711</span></span>
+<span id="cb3-95"><a href="#cb3-95"></a><span class="co">#&gt; 1.592907 2.049274</span></span>
 <span id="cb3-96"><a href="#cb3-96"></a></span>
 <span id="cb3-97"><a href="#cb3-97"></a><span class="co"># Mean difference</span></span>
 <span id="cb3-98"><a href="#cb3-98"></a><span class="kw">ci_mean_diff</span>(<span class="dv">10</span><span class="op">:</span><span class="dv">30</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">15</span>)</span>
@@ -459,7 +460,7 @@ install_github(&quot;mayer79/confintr&quot;)</code></pre>
 <span id="cb3-113"><a href="#cb3-113"></a><span class="co">#&gt; Sample estimate: 12 </span></span>
 <span id="cb3-114"><a href="#cb3-114"></a><span class="co">#&gt; Confidence interval:</span></span>
 <span id="cb3-115"><a href="#cb3-115"></a><span class="co">#&gt;      2.5%     97.5% </span></span>
-<span id="cb3-116"><a href="#cb3-116"></a><span class="co">#&gt;  8.544378 15.322926</span></span>
+<span id="cb3-116"><a href="#cb3-116"></a><span class="co">#&gt;  8.814247 15.494310</span></span>
 <span id="cb3-117"><a href="#cb3-117"></a></span>
 <span id="cb3-118"><a href="#cb3-118"></a><span class="co"># Median difference</span></span>
 <span id="cb3-119"><a href="#cb3-119"></a><span class="kw">ci_median_diff</span>(<span class="dv">10</span><span class="op">:</span><span class="dv">30</span>, <span class="dv">1</span><span class="op">:</span><span class="dv">15</span>, <span class="dt">R  =</span> <span class="dv">999</span>)</span>
@@ -471,7 +472,7 @@ install_github(&quot;mayer79/confintr&quot;)</code></pre>
 <span id="cb3-125"><a href="#cb3-125"></a><span class="co">#&gt; Sample estimate: 12 </span></span>
 <span id="cb3-126"><a href="#cb3-126"></a><span class="co">#&gt; Confidence interval:</span></span>
 <span id="cb3-127"><a href="#cb3-127"></a><span class="co">#&gt;  2.5% 97.5% </span></span>
-<span id="cb3-128"><a href="#cb3-128"></a><span class="co">#&gt;     6    17</span></span></code></pre></div>
+<span id="cb3-128"><a href="#cb3-128"></a><span class="co">#&gt;     5    16</span></span></code></pre></div>
 </div>
 <div id="references" class="section level2 unnumbered">
 <h2>References</h2>

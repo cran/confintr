@@ -1,8 +1,8 @@
 Type: Package
 Package: confintr
 Title: Confidence Intervals
-Version: 0.1.0
-Date: 2020-05-31
+Version: 0.1.1
+Date: 2020-06-29
 Authors@R: 
     person(given = "Michael",
            family = "Mayer",
@@ -12,7 +12,7 @@ Maintainer: Michael Mayer <mayermichael79@gmail.com>
 Description: Calculates classic and/or bootstrap confidence
     intervals for many parameters such as the population mean, variance,
     interquartile range (IQR), median absolute deviation (MAD), skewness,
-    kurtosis, Cramer's V, R-squared, quantiles (incl. median),
+    kurtosis, Cramer's V, odds ratio, R-squared, quantiles (incl. median),
     proportions, different types of correlation measures, difference in
     means, quantiles and medians. Many of the classic confidence intervals
     are described in Smithson, M. (2003, ISBN: 978-0761924999). Bootstrap
@@ -27,9 +27,9 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.0
 Imports: stats, boot
-Suggests: knitr, testthat
+Suggests: knitr, rmarkdown, testthat
 NeedsCompilation: no
-Packaged: 2020-05-31 14:11:22 UTC; Michael
+Packaged: 2020-06-29 06:10:08 UTC; Michael
 Author: Michael Mayer [aut, cre]
 Repository: CRAN
-Date/Publication: 2020-06-04 11:30:02 UTC
+Date/Publication: 2020-06-29 06:20:03 UTC

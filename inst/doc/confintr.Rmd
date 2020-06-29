@@ -1,12 +1,12 @@
 ---
-title: "The 'confintr' Package"
+title: "Using confintr"
 author: "Michael Mayer"
 date: "`r Sys.Date()`"
 bibliography: "biblio.bib"
 link-citations: true
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{outForest}
+  %\VignetteIndexEntry{Using confintr}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -41,6 +41,8 @@ Confidence intervals for the following parameters are available:
 - R-squared and the non-centrality parameter of the F distribution (parametric),
 
 - Cramér's V and the non-centrality parameter of the chi-squared distribution (parametric and bootstrap),
+
+- the odds ratio of a 2x2 table (exact),
 
 - Pearson-, Spearman-, Kendall correlation coefficients (normal for Pearson, bootstrap for any),
 
