@@ -9,6 +9,8 @@ knitr::opts_chunk$set(
 ## -----------------------------------------------------------------------------
 library(confintr)
 
+set.seed(1)
+
 # Mean
 ci_mean(1:100)
 ci_mean(1:100, type = "bootstrap")
