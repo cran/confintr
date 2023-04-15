@@ -1,6 +1,6 @@
 Package: confintr
 Title: Confidence Intervals
-Version: 0.2.0
+Version: 1.0.0
 Authors@R: 
     person("Michael", "Mayer", , "mayermichael79@gmail.com", role = c("aut", "cre"))
 Description: Calculates classic and/or bootstrap confidence intervals for
@@ -15,7 +15,7 @@ Description: Calculates classic and/or bootstrap confidence intervals for
 License: GPL (>= 2)
 Depends: R (>= 3.1.0)
 Encoding: UTF-8
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Imports: boot, stats
 Suggests: knitr, rmarkdown, testthat (>= 3.0.0)
 VignetteBuilder: knitr
@@ -23,8 +23,8 @@ Config/testthat/edition: 3
 URL: https://github.com/mayer79/confintr
 BugReports: https://github.com/mayer79/confintr/issues
 NeedsCompilation: no
-Packaged: 2022-09-28 16:32:51 UTC; Michael
+Packaged: 2023-04-15 20:03:35 UTC; Michael
 Author: Michael Mayer [aut, cre]
 Maintainer: Michael Mayer <mayermichael79@gmail.com>
 Repository: CRAN
-Date/Publication: 2022-09-29 09:40:09 UTC
+Date/Publication: 2023-04-15 20:30:02 UTC

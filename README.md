@@ -1,50 +1,47 @@
-# confintr <a href='https://github.com/mayer79/confintr'><img src='man/figures/logo.png' align="right" height="138.5"/></a>
+# {confintr} <a href='https://github.com/mayer79/confintr'><img src='man/figures/logo.png' align="right" height="139"/></a>
 
+<!-- badges: start -->
 
-[![CRAN version](http://www.r-pkg.org/badges/version/confintr)](https://cran.r-project.org/package=confintr) [![](https://cranlogs.r-pkg.org/badges/confintr)](https://cran.r-project.org/package=confintr) [![](https://cranlogs.r-pkg.org/badges/grand-total/confintr?color=orange)](https://cran.r-project.org/package=confintr)
+[![CRAN status](http://www.r-pkg.org/badges/version/confintr)](https://cran.r-project.org/package=confintr)
+[![R-CMD-check](https://github.com/mayer79/confintr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mayer79/confintr/actions)
+[![Codecov test coverage](https://codecov.io/gh/mayer79/confintr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/mayer79/confintr?branch=main)
 
-The `confintr` package offers classic and/or bootstrap confidence intervals for the following parameters:
+[![](https://cranlogs.r-pkg.org/badges/confintr)](https://cran.r-project.org/package=confintr) 
+[![](https://cranlogs.r-pkg.org/badges/grand-total/confintr?color=orange)](https://cran.r-project.org/package=confintr)
+
+<!-- badges: end -->
+
+## Overview
+
+{confintr} offers classic and/or bootstrap confidence intervals (CI) for the following parameters:
 
 - mean,
-
 - quantiles incl. median,
-
 - proportion,
-
 - variance and standard deviation,
-
 - IQR and MAD,
-
 - skewness and kurtosis,
-
 - R-squared and the non-centrality parameter of the F distribution,
-
 - Cramér's V and the non-centrality parameter of the chi-squared distribution,
-
-- the odds ratio of a 2x2 table,
-
+- odds ratio of a 2x2 table,
 - Pearson-, Spearman-, Kendall correlation coefficients,
-
-- mean, quantile and median differences.
+- mean differences, quantile and median differences.
 
 Both one- and two-sided intervals are supported.
 
-Different types of bootstrap intervals are possible through argument `boot_type`, see vignette.
+Different types of bootstrap intervals are available via {boot}, see vignette.
 
 ## Installation
 
-From CRAN:
-``` r
+```r
+# From CRAN
 install.packages("confintr")
+
+# Development version
+devtools::install_github("mayer79/confintr")
 ```
 
-Latest version from github:
-``` r
-library(devtools)
-install_github("mayer79/confintr")
-```
-
-## Teaser
+## Usage
 
 ``` r
 library(confintr)
@@ -120,9 +117,9 @@ ci_kurtosis(1:100)
 
 # Mean difference
 ci_mean_diff(10:30, 1:15)
-ci_mean_diff(10:30, 1:15, type = "bootstrap", R  = 999)
+ci_mean_diff(10:30, 1:15, type = "bootstrap")
 
 # Median difference
-ci_median_diff(10:30, 1:15, R  = 999)
+ci_median_diff(10:30, 1:15)
 ```
 
