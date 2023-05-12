@@ -1,3 +1,10 @@
+# confintr 1.0.1
+
+## Maintenance
+
+- Less redundancies in help files
+- Using Latex formulas in help files
+
 # confintr 1.0.0
 
 This is a large maintenance update, bumping the package to stable version 1.0.0.
