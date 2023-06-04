@@ -22,8 +22,8 @@ An object of class "cint", see \code{\link[=ci_mean]{ci_mean()}} for details.
 This function calculates parametric CIs for the population \eqn{R^2}.
 It is based on CIs for the non-centrality parameter \eqn{\Delta} of the F
 distribution found by test inversion. Values of \eqn{\Delta} are mapped to \eqn{R^2}
-by \eqn{R^2 = \Delta / (\Delta + \text{df}_1 + \text{df}_2 + 1)},
-where the \eqn{\text{df}_j} are the degrees of freedom of the F test statistic.
+by \eqn{R^2 = \Delta / (\Delta + \textrm{df}_1 + \textrm{df}_2 + 1)},
+where the \eqn{\textrm{df}_j} are the degrees of freedom of the F test statistic.
 A positive lower \eqn{(1 - \alpha) \cdot 100\%}-confidence limit for the \eqn{R^2}
 goes hand-in-hand with a significant F test at level \eqn{\alpha}.
 }
@@ -32,7 +32,7 @@ According to \code{\link[stats:Fdist]{stats::pf()}}, the results might be unreli
 Note that we do not provide bootstrap CIs here to keep the input interface simple.
 }
 \examples{
-fit <- stats::lm(Sepal.Length ~ ., data = iris)
+fit <- lm(Sepal.Length ~ ., data = iris)
 summary(fit)$r.squared
 ci_rsquared(fit)
 ci_rsquared(fit, probs = c(0.05, 1))
